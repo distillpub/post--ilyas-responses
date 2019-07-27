@@ -1,0 +1,128 @@
+<!doctype html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://distill.pub/template.v2.js"></script>
+    <style>
+        .subgrid {
+  grid-column: screen; 
+  display: grid; 
+  grid-template-columns: inherit;
+  grid-template-rows: inherit;
+  grid-column-gap: inherit;
+  grid-row-gap: inherit;
+}
+
+d-figure.base-grid {
+  grid-column: screen;
+  background: hsl(0, 0%, 97%);
+  padding: 20px 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+d-figure {
+  margin-bottom: 1em;
+  position: relative;
+}
+
+d-figure > figure {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.shaded-figure {
+  background-color: hsl(0, 0%, 97%);
+  border-top: 1px solid hsla(0, 0%, 0%, 0.1);
+  border-bottom: 1px solid hsla(0, 0%, 0%, 0.1);
+  padding: 30px 0;
+}
+
+.pointer {
+  position: absolute;
+  width: 26px;
+  height: 26px;
+  top: 26px;
+  left: -48px;
+}
+
+    </style>
+</head>
+
+<body>
+
+    <d-front-matter>
+        <script type="text/json">{
+  "title": "Responses to 'Adversarial Examples Are Not Bugs, They Are Features'",
+  "description": "",
+  "password": "advex-responses",
+  "authors": [
+    {
+      "author": "Chris Olah",
+      "authorURL": "https://colah.github.io/",
+      "affiliation": "OpenAI",
+      "affiliationURL": "https://openai.com"
+    }
+  ],
+  "katex": {
+    "delimiters": [
+      {
+        "left": "$",
+        "right": "$",
+        "display": false
+      },
+      {
+        "left": "$$",
+        "right": "$$",
+        "display": true
+      }
+    ]
+  }
+  }</script>
+    </d-front-matter>
+
+    <d-title>
+        <h1>Responses to<em>"Adversarial Examples Are Not
+                Bugs, They Are
+                Features"</em></h1>
+        <p>Ilya et al.'s paper was received with much interest. In an experimental attempt to advance the scientific
+            dialogue,
+            Distill is publishing a collection of commentary articles and clarifications developed in collaboration with
+            the original paper's authors. </p>
+    </d-title>
+
+    <d-article>
+
+        <p>Hopefully Chris can write about what this all means eloquently here.</p>
+
+    </d-article>
+
+    <d-appendix>
+        <h3>Acknowledgments</h3>
+        <p>
+            We are deeply grateful to...
+        </p>
+
+        <p>
+            Many of our diagrams are based on...
+        </p>
+
+        <h3>Author Contributions</h3>
+        <p>
+            <b>Research:</b> Alex developed ...
+        </p>
+
+        <p>
+            <b>Writing & Diagrams:</b> The text was initially drafted by...
+        </p>
+
+
+        <d-footnote-list></d-footnote-list>
+        <d-citation-list></d-citation-list>
+    </d-appendix>
+
+    <!-- bibliography will be inlined during Distill pipeline's pre-rendering -->
+    <d-bibliography src="bibliography.bib"></d-bibliography>
+
+<script type="text/javascript" src="index.bundle.js"></script></body>
