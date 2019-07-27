@@ -6,45 +6,55 @@
     <script src="https://distill.pub/template.v2.js"></script>
     <style>
         .subgrid {
-  grid-column: screen; 
-  display: grid; 
-  grid-template-columns: inherit;
-  grid-template-rows: inherit;
-  grid-column-gap: inherit;
-  grid-row-gap: inherit;
+	grid-column: screen;
+	display: grid;
+	grid-template-columns: inherit;
+	grid-template-rows: inherit;
+	grid-column-gap: inherit;
+	grid-row-gap: inherit;
 }
 
 d-figure.base-grid {
-  grid-column: screen;
-  background: hsl(0, 0%, 97%);
-  padding: 20px 0;
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+	grid-column: screen;
+	background: hsl(0, 0%, 97%);
+	padding: 20px 0;
+	border-top: 1px solid rgba(0, 0, 0, 0.1);
+	border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 d-figure {
-  margin-bottom: 1em;
-  position: relative;
+	margin-bottom: 1em;
+	position: relative;
 }
 
 d-figure > figure {
-  margin-top: 0;
-  margin-bottom: 0;
+	margin-top: 0;
+	margin-bottom: 0;
 }
 
 .shaded-figure {
-  background-color: hsl(0, 0%, 97%);
-  border-top: 1px solid hsla(0, 0%, 0%, 0.1);
-  border-bottom: 1px solid hsla(0, 0%, 0%, 0.1);
-  padding: 30px 0;
+	background-color: hsl(0, 0%, 97%);
+	border-top: 1px solid hsla(0, 0%, 0%, 0.1);
+	border-bottom: 1px solid hsla(0, 0%, 0%, 0.1);
+	padding: 30px 0;
 }
 
 .pointer {
-  position: absolute;
-  width: 26px;
-  height: 26px;
-  top: 26px;
-  left: -48px;
+	position: absolute;
+	width: 26px;
+	height: 26px;
+	top: 26px;
+	left: -48px;
+}
+
+#rebuttal,
+.rebuttal-summary,
+#response-info {
+	margin: 1em 0;
+	background-color: hsl(128, 50%, 97%);
+	border-left: solid hsl(129, 50%, 25%) 3px;
+	padding: 1em;
+	/* border-radius: 0.25em; */
 }
 
     </style>
@@ -94,7 +104,108 @@ d-figure > figure {
 
     <d-article>
 
-        <p>Hopefully Chris can write about what this all means eloquently here.</p>
+        <p>Chris eloquently writes about what this all means here.</p>
+
+        <h2>Responses</h2>
+        <ol>
+            <li>
+                <a href="response-1">Two Examples of Useful, Non-Robust Features</a>
+                <span class="author">Gabriel Goh</span>
+                <p class="rebuttal-summary">
+                    The construction of explicit non-robust features is
+                    very interesting and makes progress towards the challenge of visualizing some of
+                    the useful non-robust features detected by our experiments. We also agree that
+                    non-robust features arising as “distractors” is indeed not precluded by our
+                    theoretical framework, even if it is precluded by our experiments. Though for
+                    our purposes this simple theoretical framework sufficed for reasoning about
+                    experiments<d-footnote>We also presented a theoretical setting where we can
+                        analyze things fully rigorously in Section 4 of our paper.</d-footnote>, this comment
+                    identifies finding a more comprehensive definition of feature as an interesting
+                    future research direction.
+                </p>
+            </li>
+            <li>
+                <a href="response-2">Robust Feature Leakage</a>
+                <span class="author">Gabriel Goh</span>
+                <p class="rebuttal-summary">
+                    This
+                    is a valid concern that was actually one of our motivations for creating the
+                    $\widehat{\mathcal{D}}_{det}$ dataset—which, as the comment notes, actually
+                    has <em>misleading</em> robust features. The corresponding experiment further
+                    improves our understanding of the underlying phenomenon.
+                </p>
+            </li>
+            <li>
+                <a href="response-3">Adversarial Example Researchers Need to Expand What is Meant by
+                    "Robustness"</a>
+                <span class="author">Dan Hendrycks, Justin Gilmer</span>
+                <p class="rebuttal-summary">
+                    The demonstration of models that learn from high-frequency components of the data is interesting and
+                    nicely aligns with our findings. Now, even though susceptibility to noise could indeed arise from
+                    non-robust useful features, this kind of brittleness (akin to adversarial examples)
+                    of ML models has been so far predominantly viewed as a consequence of model
+                    “bugs” that will be eliminated by “better” models. Finally, we agree that our
+                    models need to be robust to a much broader set of perturbations&mdash;expanding the
+                    set of relevant perturbations will help identify even more non-robust features
+                    and further distill the useful features we actually want our models to rely on.
+                </p>
+            </li>
+            <li>
+                <a href="response-4">dversarially Robust Neural Style Transfer</a>
+                <span class="author">Reiichiro Nakano</span>
+                <p class="rebuttal-summary">
+                    Very interesting results, highlighting the effect of non-robust features and the utility of
+                    robust models for downstream tasks. We’re excited to see what kind of impact
+                    robustly trained models will have in neural network art! We were also really
+                    intrigued by the mysteriousness of VGG with style transfer. As such, we took a
+                    deeper dive which found some interesting links between robustness and style
+                    transfer that suggest that perhaps robustness does indeed have a role.
+                </p>
+            </li>
+            <li id="response-5">
+                <a href="response-5">Adversarial Examples are Just Bugs, Too</a>
+                <span class="author">Preetum Nakkiran</span>
+                <p class="rebuttal-summary">
+                    We note that as discussed in
+                    more detail in <a href="rebuttal/#takeaway1">Takeaway #1</a>, the mere existence of adversarial
+                    examples that are “features” is sufficient to corroborate our main thesis. This comment
+                    illustrates, however, that we can indeed craft adversarial examples that are
+                    based on “bugs” in realistic settings. Interestingly, such examples don’t
+                    transfer, which provides further support for the link between transferability
+                    and non-robust features.
+                </p>
+            </li>
+            <li>
+                <a href="response-6">Learning from Incorrectly Labeled Data</a>
+                <span class="author">Eric Wallace</span>
+                <p class="rebuttal-summary">
+                    Note that since our experiments work across architectures,
+                    “distillation” in weight space does not occur. The only distillation that can
+                    arise is “feature space” distillation, which is actually exactly our hypothesis.
+                    In particular, feature-space distillation would not work in <a href="rebuttal/#world1"> World
+                        1</a>—if the adversarial examples we generated did not exploit useful features, we should
+                    not have been able to “distill” a useful model from them. (In fact, one might think
+                    of normal model training as just “feature distillation” of the humans that
+                    labeled the dataset.) Furthermore, the hypothesis that all we need is enough
+                    model-consistent points in order to recover a model, seems to be disproven by
+                    Preetum's <a href="#response-5"> “bugs-only dataset”</a>
+                    and other (e.g. <d-cite key="milli2018model"></d-cite>) settings.
+                </p>
+            </li>
+        </ol>
+
+        <h2>Author Rebuttal</h2>
+
+        <p>Probably could inline their general clarifications here?</p>
+
+        <p>
+            <a href="rebuttal">All rebuttals</a>
+            <span class="author">Logan Engstrom, Andrew Ilyas, Aleksander Madry, Shibani Santurkar, Brandon Tran,
+                Dimitris
+                Tsipras</span>
+        </p>
+
+
 
     </d-article>
 
