@@ -13,15 +13,15 @@
 
     <d-front-matter>
         <script type="text/json">{
-  "title": "Responses to 'Adversarial Examples Are Not Bugs, They Are Features'",
+  "title": "A Discussion of 'Adversarial Examples Are Not Bugs, They Are Features'",
   "description": "",
   "password": "advex-responses",
   "authors": [
     {
-      "author": "Chris Olah",
-      "authorURL": "https://colah.github.io/",
-      "affiliation": "OpenAI",
-      "affiliationURL": "https://openai.com"
+      "author": "",
+      "authorURL": "",
+      "affiliation": "",
+      "affiliationURL": ""
     }
   ],
   "katex": {
@@ -42,10 +42,11 @@
     </d-front-matter>
 
     <d-title>
-        <h1>Responses to<em>"Adversarial Examples Are Not
+        <h1>A Discussion of <em>"Adversarial Examples Are Not
                 Bugs, They Are
                 Features"</em></h1>
-        <p>Ilya et al.'s paper was received with much interest. In an experimental attempt to advance the scientific
+        <p>Ilya et al.'s paper was received with much interest.
+          In an experimental attempt to advance the scientific
             dialogue,
             Distill is publishing a collection of commentary articles and clarifications developed in collaboration with
             the original paper's authors. </p>
@@ -53,9 +54,85 @@
 
     <d-article>
 
-        <p>Chris eloquently writes about what this all means here.</p>
+        <p>
+          On May 6th, Andrew Ilyas and colleagues <a>published a paper</a> <d-cite key=""></d-cite> outlining two sets of experiments.
+          Firstly, they showed that models trained on advarserial examples can transfer to real data,
+          and secondly that models trained on a dataset derived from the representations of robust neural networks seem to inherit non-trivial robustness.
+          They proposed an intruiging interpretation for their results:
+          advarserial examples are due to "non-robust features" which are highly predictive but impercetible to humans.
+        </p>
 
-        <h2>Responses</h2>
+        <p>
+          The paper was received with intense interest and discussion
+          on social media, mailing lists, and reading groups around the world.
+          How should we intepret these experiments?
+          Would they replicate?<d-footnote>
+            Advarserial example research is particularly vulnerable to a certain kind of non-replication among disciplines of machine learning,
+            because it requires researchers to play both attack and defense.
+            It's easy for even very rigorous researchers to accidentally use a weak attack.
+            However, as we'll see, Ilyas et al's results have held up to initial scrutiny.
+          </d-footnote>
+          And if non-rbobust feature exist... what are they?
+        </p>
+
+        <p>
+          To explore these questions, Distill decided to run an experimental "discussion article."
+          We invited a number of researchers
+          to write comments on the paper and organized discussion and responses from the original authors.
+        </p>
+
+        <p>
+          The Machine Learning community
+          <a href="https://www.machinelearningdebates.com/program">sometimes</a>
+          <a href="https://medium.com/syncedreview/cvpr-paper-controversy-ml-community-reviews-peer-review-79bf49eb0547">worries</a>
+          about having a weak culture of peer reivew.
+          In contrast to this, we were struck by how deeply respondants engaged.
+          Some respondants literally invested weeks in replicating results, running new experiments, and thinking deeply about the original paper.
+          We also saw respondants update their views on non-rboust features as they ran experiments -- sometimes back and forth!
+          The original authors similarly deeply engaged in discussing their results, clarifying misunderstandings, and even running new experiments in response to comments.
+        </p>
+
+        <h2>Discussion Themes</h2>
+
+        <p>
+          <b>Clarifications</b>:
+          Discussion between the respondants and original authors was able
+          to surface several misunderstandings or opportunities to sharpen claims.
+          The original authors summarize this in their rebuttal.
+        </p>
+
+        <p>
+          <b>Successful Replication</b>:
+          Respondants succesfully reproduced many of the experiments in Ilyas et al <d-cite key=""></d-cite> and had no unsucessful replication attempts.
+          This was significantly facilitated by the release of code, models, and datasets by the original authors.
+          Gabriel Goh and Preetum Nakkiran both independently reimplemented and replicated
+          the non-robust dataset experiments.<d-footnote>
+            Preetum reproduced the D_{det} non-robust dataset experiment as described in the paper, for L_infinity and L_2 attacks.
+            Gabriel repproduced both D_{det} and D_{rand}.
+          </d-footnote>
+          Preetum also also replicated part of the robust dataset experiment by
+          training models on the provided robust dataset and finding that they seemed non-trivially robust.
+          It seems epistemically notable that both Preetum and Gabriel were initially skeptical.
+        </p>
+
+        <p>
+          <b>Exploring the Boundaries of Non-Robust Transfer</b>:
+          Three of the comments focused explored variants of the "non-robust dataset" experiment,
+          where training on advarserial examples transfers to real data.
+          When, how, and why does it happen?
+          Gabriel Goh and Eric Wallace explore two alternative mechanisms or hypotheses for the results,
+          while Preetum Nakkiran shows a special construction where it doesn't happen.
+        </p>
+
+        <p>
+          <b>Properties of Robust and Non-Robust Features</b>:
+          The other three comments focused on the properties of robust and non-robust models.
+          Gabriel Goh explores what non-robust features might look like in the case of linear models,
+          while Dan Hendrycks and Justin Gilmer discuss the role of high-frequency noise in advarserial examples,
+          and Reiichiro Nakano explores the qualitative differences of robust models in the context of style transfer.
+        </p>
+
+        <h2>Comments</h2>
         <ol>
             <li>
                 <a href="response-1">Two Examples of Useful, Non-Robust Features</a>
