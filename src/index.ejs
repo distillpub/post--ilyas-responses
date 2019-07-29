@@ -56,23 +56,23 @@
 
         <p>
           On May 6th, Andrew Ilyas and colleagues <a>published a paper</a> <d-cite key=""></d-cite> outlining two sets of experiments.
-          Firstly, they showed that models trained on advarserial examples can transfer to real data,
+          Firstly, they showed that models trained on adversarial examples can transfer to real data,
           and secondly that models trained on a dataset derived from the representations of robust neural networks seem to inherit non-trivial robustness.
-          They proposed an intruiging interpretation for their results:
-          advarserial examples are due to "non-robust features" which are highly predictive but impercetible to humans.
+          They proposed an intriguing interpretation for their results:
+          adversarial examples are due to "non-robust features" which are highly predictive but imperceptible to humans.
         </p>
 
         <p>
           The paper was received with intense interest and discussion
           on social media, mailing lists, and reading groups around the world.
-          How should we intepret these experiments?
+          How should we interpret these experiments?
           Would they replicate?<d-footnote>
             Advarserial example research is particularly vulnerable to a certain kind of non-replication among disciplines of machine learning,
             because it requires researchers to play both attack and defense.
             It's easy for even very rigorous researchers to accidentally use a weak attack.
             However, as we'll see, Ilyas et al's results have held up to initial scrutiny.
           </d-footnote>
-          And if non-rbobust feature exist... what are they?
+          And if non-robust feature exist... what are they?
         </p>
 
         <p>
@@ -93,10 +93,10 @@
           The Machine Learning community
           <a href="https://www.machinelearningdebates.com/program">sometimes</a>
           <a href="https://medium.com/syncedreview/cvpr-paper-controversy-ml-community-reviews-peer-review-79bf49eb0547">worries</a>
-          that peer reivew isn't thoroguh enough.
-          In contrast to this, we were struck by how deeply respondants engaged.
-          Some respondants literally invested weeks in replicating results, running new experiments, and thinking deeply about the original paper.
-          We also saw respondants update their views on non-rboust features as they ran experiments -- sometimes back and forth!
+          that peer review isn't thorough enough.
+          In contrast to this, we were struck by how deeply respondents engaged.
+          Some respondents literally invested weeks in replicating results, running new experiments, and thinking deeply about the original paper.
+          We also saw respondents update their views on non-robust features as they ran experiments -- sometimes back and forth!
           The original authors similarly deeply engaged in discussing their results, clarifying misunderstandings, and even running new experiments in response to comments.
         </p>
 
@@ -104,21 +104,21 @@
 
         <p>
           <b>Clarifications</b>:
-          Discussion between the respondants and original authors was able
+          Discussion between the respondents and original authors was able
           to surface several misunderstandings or opportunities to sharpen claims.
           The original authors summarize this in their rebuttal.
         </p>
 
         <p>
           <b>Successful Replication</b>:
-          Respondants succesfully reproduced many of the experiments in Ilyas et al <d-cite key=""></d-cite> and had no unsucessful replication attempts.
+          Respondents successfully reproduced many of the experiments in Ilyas et al <d-cite key=""></d-cite> and had no unsuccessful replication attempts.
           This was significantly facilitated by the release of code, models, and datasets by the original authors.
           Gabriel Goh and Preetum Nakkiran both independently reimplemented and replicated
           the non-robust dataset experiments.<d-footnote>
             Preetum reproduced the $\widehat{\mathcal{D}}_{det}$ non-robust dataset experiment as described in the paper, for $L_\infty$ and $L_2$ attacks.
             Gabriel repproduced both $\widehat{\mathcal{D}}_{det}$ and $\widehat{\mathcal{D}}_{rand}$.
           </d-footnote>
-          Preetum also also replicated part of the robust dataset experiment by
+          Preetum also replicated part of the robust dataset experiment by
           training models on the provided robust dataset and finding that they seemed non-trivially robust.
           It seems epistemically notable that both Preetum and Gabriel were initially skeptical.
         </p>
@@ -126,7 +126,7 @@
         <p>
           <b>Exploring the Boundaries of Non-Robust Transfer</b>:
           Three of the comments focused explored variants of the "non-robust dataset" experiment,
-          where training on advarserial examples transfers to real data.
+          where training on adversarial examples transfers to real data.
           When, how, and why does it happen?
           Gabriel Goh explores an alternative mechanisms or hypotheses for the results,
           Preetum Nakkiran shows a special construction where it doesn't happen,
@@ -137,15 +137,22 @@
           <b>Properties of Robust and Non-Robust Features</b>:
           The other three comments focused on the properties of robust and non-robust models.
           Gabriel Goh explores what non-robust features might look like in the case of linear models,
-          while Dan Hendrycks and Justin Gilmer discuss the role of high-frequency noise in advarserial examples,
+          while Dan Hendrycks and Justin Gilmer discuss the role of high-frequency noise in adversarial examples,
           and Reiichiro Nakano explores the qualitative differences of robust models in the context of style transfer.
         </p>
 
         <h2>Comments</h2>
+        <p>
+          Distill collected six comments on the original paper.
+          They are presented in alphabetical order by the author's last name,
+          with brief summaries of each comment and the corresponding rebuttal.
+        </p>
         <ol>
             <li>
-                <a href="response-1">Two Examples of Useful, Non-Robust Features</a>
-                <span class="author">Gabriel Goh</span>
+                <h3 style="margin-top: 20px;">
+                  <a href="response-1">Two Examples of Useful, Non-Robust Features</a>
+                  <span class="author">Gabriel Goh (OpenAI)</span>
+                </h3>
                 <p class="summary">
                   Gabriel explores what non-robust useful features might look like in the linear case.
                   He provides two constructions:
@@ -166,8 +173,10 @@
                 </p>
             </li>
             <li>
-                <a href="response-2">Robust Feature Leakage</a>
-                <span class="author">Gabriel Goh</span>
+                <h3>
+                  <a href="response-2">Robust Feature Leakage</a>
+                  <span class="author">Gabriel Goh (OpenAI)</span>
+                </h3>
                 <p class="summary">
                   Gabriel explores an alterantive mechanism that could contribute to the non-robust transfer results.
                   He establishes a lower-bound showing that this mechanism contributes a little bit to the $\widehat{\mathcal{D}}_{rand}$ experiment,
@@ -187,9 +196,11 @@
                 </p>-->
             </li>
             <li>
-                <a href="response-3">Adversarial Example Researchers Need to Expand What is Meant by
-                    "Robustness"</a>
-                <span class="author">Dan Hendrycks, Justin Gilmer</span>
+                <h3>
+                  <a href="response-3">Adversarial Example Researchers Need to Expand What is Meant by
+                      "Robustness"</a>
+                  <span class="author">Dan Hendrycks (Berkeley), Justin Gilmer (Google Brain Team)</span>
+                </h3>
                 <p class="summary">
                   Dan and Justin discuss "non-robust features" as a special case
                   of models being non-robust becasue they latch on to superficial correlations.
@@ -207,8 +218,10 @@
                 </p>
             </li>
             <li>
-                <a href="response-4">Adversarially Robust Neural Style Transfer</a>
-                <span class="author">Reiichiro Nakano</span>
+                <h3>
+                  <a href="response-4">Adversarially Robust Neural Style Transfer</a>
+                  <span class="author">Reiichiro Nakano</span>
+                </h3>
                 <p class="summary">
                   Reiichiro shows that adversarial robustness makes neural style transfer
                   work by default on a non-VGG architecture.
@@ -224,16 +237,18 @@
                 </p>
             </li>
             <li id="response-5">
-                <a href="response-5">Adversarial Examples are Just Bugs, Too</a>
-                <span class="author">Preetum Nakkiran</span>
+                <h3>
+                  <a href="response-5">Adversarial Examples are Just Bugs, Too</a>
+                  <span class="author">Preetum Nakkiran (OpenAI & Harvard)</span>
+                </h3>
                 <p class="summary">
-                   Preetum constructs a family of advarserial examples with no transfer to real data,
-                   suggesting that some advarserial examples are "bugs" in the original papers framing.
+                   Preetum constructs a family of adversarial examples with no transfer to real data,
+                   suggesting that some adversarial examples are "bugs" in the original papers framing.
                    Preetum also demonstrate that adversarial examples can arise even if the underlying distribution has no "non-robust features".
                 </p>
                 <p class="rebuttal-summary">
                   The orginal authors clarify that this is consistent with their thesis:
-                  they aim to show that some advarserial examples are "features", not that all are.
+                  they aim to show that some adversarial examples are "features", not that all are.
                   (See <a href="rebuttal/#takeaway1">Takeaway #1</a>.)
                 </p>
                 <!--<p class="rebuttal-summary">
@@ -247,8 +262,10 @@
                 </p>-->
             </li>
             <li>
-                <a href="response-6">Learning from Incorrectly Labeled Data</a>
-                <span class="author">Eric Wallace</span>
+                <h3>
+                  <a href="response-6">Learning from Incorrectly Labeled Data</a>
+                  <span class="author">Eric Wallace (Allen Institute for AI)</span>
+                </h3>
                 <p class="summary">
                   Eric shows that training on a model's training errors,
                   or on how it predicts examples form an unrelated dataset,

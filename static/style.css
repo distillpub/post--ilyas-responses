@@ -41,11 +41,39 @@ d-figure > figure {
 }
 
 #rebuttal,
+.summary,
 .rebuttal-summary,
 #response-info {
 	margin: 1em 0;
-	background-color: hsl(128, 50%, 97%);
-	border-left: solid hsl(129, 50%, 25%) 3px;
 	padding: 1em;
 	/* border-radius: 0.25em; */
+}
+
+.summary {
+  margin-top: 18px;
+  margin-bottom: 18px;
+}
+
+.rebuttal-summary {
+  margin-top: 18px;
+  margin-bottom: 32px;
+}
+
+h3 .author {
+  font-weight: normal;
+  color: #555;
+  margin-left: 8px;
+}
+
+#rebuttal,
+.rebuttal-summary,
+#response-info{
+	background-color: hsl(118, 50%, 97%);
+	border-left: solid hsl(119, 50%, 25%) 3px;
+	/* border-radius: 0.25em; */
+}
+
+.summary {
+  background-color: hsl(228, 50%, 97%);
+  border-left: solid hsl(229, 50%, 25%) 3px;
 }
