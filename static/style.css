@@ -49,3 +49,28 @@ d-figure > figure {
 	padding: 1em;
 	/* border-radius: 0.25em; */
 }
+
+#responses {
+	padding-left: 0;
+}
+
+#responses li {
+	display: grid;
+	grid-template-columns: 12em 1fr;
+	grid-template-areas:
+		"author title"
+		"abstract abstract"
+		"rebuttal rebuttal";
+}
+
+#responses li .author {
+	grid-area: author;
+}
+
+#responses li a {
+	grid-area: title;
+}
+
+#responses li .rebuttal-summary {
+	grid-area: rebuttal;
+}
