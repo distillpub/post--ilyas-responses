@@ -53,23 +53,29 @@
             the original paper's authors. </p>
     </d-title>
 
+    <style>
+        .authors-affiliations {
+            display: none;
+        }
+    </style>
+
     <d-article>
 
         <p>
-            On May 6th, Andrew Ilyas and colleagues <a>published a paper</a>
-            <d-cite key="ilyas2019adversarial"></d-cite> outlining two sets of experiments.
-            Firstly, they showed that models trained on advarserial examples can transfer to real data,
+            On May 6th, Andrew Ilyas and colleagues <a href="http://gradientscience.org/adv/">published a paper</a>
+            <d-cite key="ilyas2019dversarial"></d-cite> outlining two sets of experiments.
+            Firstly, they showed that models trained on adversarial examples can transfer to real data,
             and secondly that models trained on a dataset derived from the representations of robust neural networks
             seem to inherit non-trivial robustness.
-            They proposed an intruiging interpretation for their results:
-            advarserial examples are due to "non-robust features" which are highly predictive but impercetible to
+            They proposed an intriguing interpretation for their results:
+            adversarial examples are due to "non-robust features" which are highly predictive but imperceptible to
             humans.
         </p>
 
         <p>
             The paper was received with intense interest and discussion
             on social media, mailing lists, and reading groups around the world.
-            How should we intepret these experiments?
+            How should we interpret these experiments?
             Would they replicate?<d-footnote>
                 Advarserial example research is particularly vulnerable to a certain kind of non-replication among
                 disciplines of machine learning,
@@ -77,7 +83,7 @@
                 It's easy for even very rigorous researchers to accidentally use a weak attack.
                 However, as we'll see, Ilyas et al's results have held up to initial scrutiny.
             </d-footnote>
-            And if non-rbobust feature exist... what are they?
+            And if non-robust feature exist... what are they?
         </p>
 
         <p>
@@ -101,11 +107,11 @@
             <a href="https://www.machinelearningdebates.com/program">sometimes</a>
             <a
                 href="https://medium.com/syncedreview/cvpr-paper-controversy-ml-community-reviews-peer-review-79bf49eb0547">worries</a>
-            that peer reivew isn't thoroguh enough.
-            In contrast to this, we were struck by how deeply respondants engaged.
-            Some respondants literally invested weeks in replicating results, running new experiments, and thinking
+            that peer review isn't thorough enough.
+            In contrast to this, we were struck by how deeply respondents engaged.
+            Some respondents literally invested weeks in replicating results, running new experiments, and thinking
             deeply about the original paper.
-            We also saw respondants update their views on non-rboust features as they ran experiments -- sometimes back
+            We also saw respondents update their views on non-robust features as they ran experiments — sometimes back
             and forth!
             The original authors similarly deeply engaged in discussing their results, clarifying misunderstandings, and
             even running new experiments in response to comments.
@@ -115,50 +121,61 @@
 
         <p>
             <b>Clarifications</b>:
-            Discussion between the respondants and original authors was able
+            Discussion between the respondents and original authors was able
             to surface several misunderstandings or opportunities to sharpen claims.
             The original authors summarize this in their rebuttal.
         </p>
 
         <p>
             <b>Successful Replication</b>:
-            Respondants succesfully reproduced many of the experiments in Ilyas et al <d-cite key=""></d-cite> and had
-            no unsucessful replication attempts.
+            Respondents successfully reproduced many of the experiments in Ilyas et al <d-cite
+                key="ilyas2019dversarial"></d-cite> and had no unsuccessful replication attempts.
             This was significantly facilitated by the release of code, models, and datasets by the original authors.
             Gabriel Goh and Preetum Nakkiran both independently reimplemented and replicated
             the non-robust dataset experiments.<d-footnote>
                 Preetum reproduced the $\widehat{\mathcal{D}}_{det}$ non-robust dataset experiment as described in the
                 paper, for $L_\infty$ and $L_2$ attacks.
-                Gabriel repproduced both $\widehat{\mathcal{D}}_{det}$ and $\widehat{\mathcal{D}}_{rand}$.
+                <br>
+                Gabriel repproduced both $\widehat{\mathcal{D}}_{det}$ and $\widehat{\mathcal{D}}_{rand}$ for $L_2$
+                attacks.
             </d-footnote>
-            Preetum also also replicated part of the robust dataset experiment by
+            Preetum also replicated part of the robust dataset experiment by
             training models on the provided robust dataset and finding that they seemed non-trivially robust.
             It seems epistemically notable that both Preetum and Gabriel were initially skeptical.
+            Preetum emphasizes that he found it easy to make the phenomenon work and that it was robust to many variants
+            and hyperparmeters he tried.
         </p>
 
         <p>
             <b>Exploring the Boundaries of Non-Robust Transfer</b>:
-            Three of the comments focused explored variants of the "non-robust dataset" experiment,
-            where training on advarserial examples transfers to real data.
+            Three of the comments focused on variants of the "non-robust dataset" experiment,
+            where training on adversarial examples transfers to real data.
             When, how, and why does it happen?
-            Gabriel Goh explores an alternative mechanisms or hypotheses for the results,
+            Gabriel Goh explores an alternative mechanisms for the results,
             Preetum Nakkiran shows a special construction where it doesn't happen,
-            and Eric Wallace shows that transfer can happen from other kinds of incorrectly labeld data.
+            and Eric Wallace shows that transfer can happen for other kinds of incorrectly labeld data.
         </p>
 
         <p>
             <b>Properties of Robust and Non-Robust Features</b>:
             The other three comments focused on the properties of robust and non-robust models.
             Gabriel Goh explores what non-robust features might look like in the case of linear models,
-            while Dan Hendrycks and Justin Gilmer discuss the role of high-frequency noise in advarserial examples,
+            while Dan Hendrycks and Justin Gilmer discuss the role of high-frequency noise in adversarial examples,
             and Reiichiro Nakano explores the qualitative differences of robust models in the context of style transfer.
         </p>
 
         <h2>Comments</h2>
+        <p>
+            Distill collected six comments on the original paper.
+            They are presented in alphabetical order by the author's last name,
+            with brief summaries of each comment and the corresponding rebuttal.
+        </p>
         <ol>
             <li>
-                <a href="response-1">Two Examples of Useful, Non-Robust Features</a>
-                <span class="author">Gabriel Goh</span>
+                <h3 style="margin-top: 20px;">
+                    <a href="response-1">Two Examples of Useful, Non-Robust Features</a>
+                    <span class="author">Gabriel Goh (OpenAI)</span>
+                </h3>
                 <p class="summary">
                     Gabriel explores what non-robust useful features might look like in the linear case.
                     He provides two constructions:
@@ -166,7 +183,8 @@
                     and "ensembles" that could be candidates for true useful non-robust features.
                 </p>
                 <p class="rebuttal-summary">
-                    The construction of explicit non-robust features is
+                    <b>Original Authors:</b>
+                    "The construction of explicit non-robust features is
                     very interesting and makes progress towards the challenge of visualizing some of
                     the useful non-robust features detected by our experiments. We also agree that
                     non-robust features arising as “distractors” is indeed not precluded by our
@@ -175,55 +193,69 @@
                     experiments<d-footnote>We also presented a theoretical setting where we can
                         analyze things fully rigorously in Section 4 of our paper.</d-footnote>, this comment
                     identifies finding a more comprehensive definition of feature as an interesting
-                    future research direction.
+                    future research direction."
                 </p>
             </li>
             <li>
-                <a href="response-2">Robust Feature Leakage</a>
-                <span class="author">Gabriel Goh</span>
+                <h3>
+                    <a href="response-2">Robust Feature Leakage</a>
+                    <span class="author">Gabriel Goh (OpenAI)</span>
+                </h3>
                 <p class="summary">
-                    Gabriel explores an alterantive mechanism that could contribute to the non-robust transfer results.
+                    Gabriel explores an alternative mechanism that could contribute to the non-robust transfer results.
                     He establishes a lower-bound showing that this mechanism contributes a little bit to the
                     $\widehat{\mathcal{D}}_{rand}$ experiment,
                     but finds no evidence for it effecting the $\widehat{\mathcal{D}}_{det}$ experiment.
                 </p>
                 <p class="rebuttal-summary">
-                    The original authors emphasize that one of the purposes of the $\widehat{\mathcal{D}}_{det}$
-                    experiment
-                    -- which tries to not just remove robust features but make them actively misleading --
-                    is actually to avoid this concern, and it seems to succeed.
-                </p>
-                <!--<p class="rebuttal-summary">
-                    This
+                    <b>Original Authors:</b>
+                    "This
                     is a valid concern that was actually one of our motivations for creating the
                     $\widehat{\mathcal{D}}_{det}$ dataset—which, as the comment notes, actually
                     has <em>misleading</em> robust features. The corresponding experiment further
-                    improves our understanding of the underlying phenomenon.
-                </p>-->
-            </li>
-            <li>
-                <a href="response-3">Adversarial Example Researchers Need to Expand What is Meant by
-                    "Robustness"</a>
-                <span class="author">Dan Hendrycks, Justin Gilmer</span>
-                <p class="summary">
-                    Dan and Justin discuss "non-robust features" as a special case
-                    of models being non-robust becasue they latch on to superficial correlations.
-                    As an example, they discuss recent analysis of how neural networks behave in frequency space.
+                    improves our understanding of the underlying phenomenon."
                 </p>
                 <p class="rebuttal-summary">
-                    The demonstration of models that learn from high-frequency components of the data is interesting and
+                    <span style="color: #888;">(Potential alternative rebuttal summary, in voice of journal.)</span>
+                    <br><br>
+                    The original authors emphasize that one of the purposes of the $\widehat{\mathcal{D}}_{det}$
+                    experiment
+                    (which tries to not just remove robust features but make them actively misleading)
+                    is actually to avoid this concern, and it seems to succeed.
+                </p>
+            </li>
+            <li>
+                <h3>
+                    <a href="response-3">Adversarial Example Researchers Need to Expand What is Meant by
+                        "Robustness"</a>
+                    <span class="author">Dan Hendrycks (Berkeley), Justin Gilmer (Google Brain Team)</span>
+                </h3>
+                <p class="summary">
+                    Dan and Justin discuss "non-robust features" as a special case
+                    of models being non-robust because they latch on to superficial correlations,
+                    a view often found in the distributional robustness literature.
+                    As an example, they discuss recent analysis of how neural networks behave in frequency space.
+                    They emphasize we should think about a broader notion of robustness.
+                    <!-- TODO: mention distributional robustness -->
+                </p>
+                <p class="rebuttal-summary">
+                    <b>Original Authors:</b>
+                    "The demonstration of models that learn from high-frequency components of the data is interesting
+                    and
                     nicely aligns with our findings. Now, even though susceptibility to noise could indeed arise from
                     non-robust useful features, this kind of brittleness (akin to adversarial examples)
                     of ML models has been so far predominantly viewed as a consequence of model
                     “bugs” that will be eliminated by “better” models. Finally, we agree that our
                     models need to be robust to a much broader set of perturbations&mdash;expanding the
                     set of relevant perturbations will help identify even more non-robust features
-                    and further distill the useful features we actually want our models to rely on.
+                    and further distill the useful features we actually want our models to rely on."
                 </p>
             </li>
             <li>
-                <a href="response-4">Adversarially Robust Neural Style Transfer</a>
-                <span class="author">Reiichiro Nakano</span>
+                <h3>
+                    <a href="response-4">Adversarially Robust Neural Style Transfer</a>
+                    <span class="author">Reiichiro Nakano</span>
+                </h3>
                 <p class="summary">
                     Reiichiro shows that adversarial robustness makes neural style transfer
                     work by default on a non-VGG architecture.
@@ -231,50 +263,61 @@
                     humans.
                 </p>
                 <p class="rebuttal-summary">
-                    Very interesting results, highlighting the effect of non-robust features and the utility of
+                    <b>Original Authors:</b>
+                    "Very interesting results, highlighting the effect of non-robust features and the utility of
                     robust models for downstream tasks. We’re excited to see what kind of impact
                     robustly trained models will have in neural network art! We were also really
                     intrigued by the mysteriousness of VGG with style transfer. As such, we took a
                     deeper dive which found some interesting links between robustness and style
-                    transfer that suggest that perhaps robustness does indeed have a role.
+                    transfer that suggest that perhaps robustness does indeed have a role."
                 </p>
             </li>
             <li id="response-5">
-                <a href="response-5">Adversarial Examples are Just Bugs, Too</a>
-                <span class="author">Preetum Nakkiran</span>
+                <h3>
+                    <a href="response-5">Adversarial Examples are Just Bugs, Too</a>
+                    <span class="author">Preetum Nakkiran (OpenAI & Harvard)</span>
+                </h3>
                 <p class="summary">
-                    Preetum constructs a family of advarserial examples with no transfer to real data,
-                    suggesting that some advarserial examples are "bugs" in the original papers framing.
+                    Preetum constructs a family of adversarial examples with no transfer to real data,
+                    suggesting that some adversarial examples are "bugs" in the original papers framing.
                     Preetum also demonstrate that adversarial examples can arise even if the underlying distribution has
                     no "non-robust features".
                 </p>
+
                 <p class="rebuttal-summary">
-                    The orginal authors clarify that this is consistent with their thesis:
-                    they aim to show that some advarserial examples are "features", not that all are.
-                    (See <a href="rebuttal/#takeaway1">Takeaway #1</a>.)
-                </p>
-                <!--<p class="rebuttal-summary">
-                    We note that as discussed in
+                    <b>Original Authors:</b>
+                    "We note that as discussed in
                     more detail in <a href="rebuttal/#takeaway1">Takeaway #1</a>, the mere existence of adversarial
                     examples that are “features” is sufficient to corroborate our main thesis. This comment
                     illustrates, however, that we can indeed craft adversarial examples that are
                     based on “bugs” in realistic settings. Interestingly, such examples don’t
                     transfer, which provides further support for the link between transferability
-                    and non-robust features.
-                </p>-->
+                    and non-robust features."
+                </p>
+
+                <p class="rebuttal-summary">
+                    <span style="color: #888;">(Potential alternative rebuttal summary, in voice of journal.)</span>
+                    <br><br>
+                    The original authors clarify that this is consistent with their thesis:
+                    they aim to show that some adversarial examples are "features", not that all are.
+                    (See <a href="rebuttal/#takeaway1">Takeaway #1</a>.)
+                </p>
             </li>
             <li>
-                <a href="response-6">Learning from Incorrectly Labeled Data</a>
-                <span class="author">Eric Wallace</span>
+                <h3>
+                    <a href="response-6">Learning from Incorrectly Labeled Data</a>
+                    <span class="author">Eric Wallace (Allen Institute for AI)</span>
+                </h3>
                 <p class="summary">
                     Eric shows that training on a model's training errors,
                     or on how it predicts examples form an unrelated dataset,
                     can both transfer to the true test set.
-                    These experiments are analagous to the original paper's non-robust transfer results,
-                    and suggest a broader framing of learning from prediction errors.
+                    These experiments are analogous to the original paper's non-robust transfer results
+                    -- all three results are examples of a kind of "learning from incorrectly labeled data."
                 </p>
                 <p class="rebuttal-summary">
-                    Note that since our experiments work across architectures,
+                    <b>Original Authors:</b>
+                    "Note that since our experiments work across architectures,
                     “distillation” in weight space does not occur. The only distillation that can
                     arise is “feature space” distillation, which is actually exactly our hypothesis.
                     In particular, feature-space distillation would not work in <a href="rebuttal/#world1"> World
@@ -284,7 +327,7 @@
                     labeled the dataset.) Furthermore, the hypothesis that all we need is enough
                     model-consistent points in order to recover a model, seems to be disproven by
                     Preetum's <a href="#response-5"> “bugs-only dataset”</a>
-                    and other (e.g. <d-cite key="milli2018model"></d-cite>) settings.
+                    and other (e.g. <d-cite key="milli2018model"></d-cite>) settings."
                 </p>
             </li>
         </ol>
@@ -314,12 +357,29 @@
             this format.
         </p>
 
-        <h3>Author Contributions</h3>
+        <h3>Editorial Note</h3>
         <p>
-            Chris Olah initiated, organized and acted as editor for the response and rebuttal process. Ludwig Schubert
-            assisted by assembling the responses into their current presentation. We're extremely grateful for the time
+            This discussion article is an experiment organized by Chris Olah and Ludwig Schubert. Chris Olah initiated,
+            organized and acted as editor for the response and rebuttal process. Ludwig Schubert
+            assisted by assembling the responses into their current presentation.
+        </p>
+
+        <p>
+            We're extremely grateful for the time
             and effort that both the authors of the responses as well as the authors of the original paper put into this
             process, and the patience they had with the editorial team as we experimented with this format.
+            Respondents were selected in two ways.
+            Some respondents came to our attention because they were actively working on better understanding the Ilyas
+            et al results.
+            Other respondents were subject matter experts we reached out to.
+        </p>
+
+
+        <h3>Acknowledgments</h3>
+        <p>
+            Distill is grateful to all respondents and the original authors for their generous engagement in this
+            experiment.
+            Distill is also grateful to Ferenc Huszar for encouraging us to explore this style of article.
         </p>
 
 
