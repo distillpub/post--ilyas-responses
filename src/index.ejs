@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- <script src="https://distill.pub/template.v2.js"></script> -->
-    <script src="http://localhost:8000/template.v2.js"></script>
+    <script src="http://distill.pub/template.v2.js"></script>
     <style>
         <%=require("raw-loader!../static/style.css") %>
     </style>
@@ -19,9 +19,75 @@
   "password": "advex-responses",
   "authors": [
     {
-      "author": "",
-      "authorURL": "",
+      "author": "Logan Engstrom",
+      "authorURL": "http://loganengstrom.com/",
+      "affiliation": "MIT",
+      "affiliationURL": ""
+    },
+    {
+      "author": "Justin Gilmer",
+      "authorURL": "https://www.linkedin.com/in/jmgilmer/",
+      "affiliation": "Google Brain Team",
+      "affiliationURL": "https://ai.google/research/teams/brain"
+    },
+    {
+      "author": "Gabriel Goh",
+      "authorURL": "https://gabgoh.github.io/",
+      "affiliation": "OpenAI",
+      "affiliationURL": "https://openai.com/"
+    },
+    {
+      "author": "Dan Hendrycks",
+      "authorURL": "https://people.eecs.berkeley.edu/~hendrycks/",
+      "affiliation": "UC Berkeley",
+      "affiliationURL": ""
+    },
+    {
+      "author": "Andrew Ilyas",
+      "authorURL": "http://andrewilyas.com/",
+      "affiliation": "MIT",
+      "affiliationURL": ""
+    },
+    {
+      "author": "Aleksander Madry",
+      "authorURL": "https://people.csail.mit.edu/madry/",
+      "affiliation": "MIT",
+      "affiliationURL": ""
+    },
+    {
+      "author": "Reiichiro Nakano",
+      "authorURL": "https://reiinakano.com/",
       "affiliation": "",
+      "affiliationURL": ""
+    },
+    {
+      "author": "Preetum Nakkiran",
+      "authorURL": "",
+      "affiliation": "OpenAI & Harvard",
+      "affiliationURL": ""
+    },
+    {
+      "author": "Shibani Santurkar",
+      "authorURL": "http://people.csail.mit.edu/shibani/",
+      "affiliation": "MIT",
+      "affiliationURL": ""
+    },
+    {
+      "author": "Brandon Tran",
+      "authorURL": "",
+      "affiliation": "MIT",
+      "affiliationURL": ""
+    },
+    {
+      "author": "Dimitris Tsipras",
+      "authorURL": "http://people.csail.mit.edu/tsipras/",
+      "affiliation": "MIT",
+      "affiliationURL": ""
+    },
+    {
+      "author": "Eric Wallace",
+      "authorURL": "http://www.ericswallace.com/",
+      "affiliation": "Allen Institute for AI",
       "affiliationURL": ""
     }
   ],
@@ -160,7 +226,7 @@
             <b>Properties of Robust and Non-Robust Features</b>:
             The other three comments focused on the properties of robust and non-robust models.
             Gabriel Goh explores what non-robust features might look like in the case of linear models,
-            while Dan Hendrycks and Justin Gilmer discuss the role of high-frequency noise in adversarial examples,
+            while Dan Hendrycks and Justin Gilmer discuss how the results relate to the broader problem of robustness to distribution shift,
             and Reiichiro Nakano explores the qualitative differences of robust models in the context of style transfer.
         </p>
 
@@ -171,6 +237,33 @@
             with brief summaries of each comment and the corresponding rebuttal.
         </p>
         <ol>
+            <li>
+                <h3>
+                    <a href="response-3">Adversarial Example Researchers Need to Expand What is Meant by
+                        "Robustness"</a>
+                    <span class="author">Justin Gilmer (Google Brain Team), Dan Hendrycks (Berkeley)</span>
+                </h3>
+                <p class="summary">
+                    Dan and Justin discuss "non-robust features" as a special case
+                    of models being non-robust because they latch on to superficial correlations,
+                    a view often found in the distributional robustness literature.
+                    As an example, they discuss recent analysis of how neural networks behave in frequency space.
+                    They emphasize we should think about a broader notion of robustness.
+                    <!-- TODO: mention distributional robustness -->
+                </p>
+                <p class="rebuttal-summary">
+                    <b>Original Authors:</b>
+                    "The demonstration of models that learn from high-frequency components of the data is interesting
+                    and
+                    nicely aligns with our findings. Now, even though susceptibility to noise could indeed arise from
+                    non-robust useful features, this kind of brittleness (akin to adversarial examples)
+                    of ML models has been so far predominantly viewed as a consequence of model
+                    “bugs” that will be eliminated by “better” models. Finally, we agree that our
+                    models need to be robust to a much broader set of perturbations&mdash;expanding the
+                    set of relevant perturbations will help identify even more non-robust features
+                    and further distill the useful features we actually want our models to rely on."
+                </p>
+            </li>
             <li>
                 <h3 style="margin-top: 20px;">
                     <a href="response-1">Two Examples of Useful, Non-Robust Features</a>
@@ -222,33 +315,6 @@
                     experiment
                     (which tries to not just remove robust features but make them actively misleading)
                     is actually to avoid this concern, and it seems to succeed.
-                </p>
-            </li>
-            <li>
-                <h3>
-                    <a href="response-3">Adversarial Example Researchers Need to Expand What is Meant by
-                        "Robustness"</a>
-                    <span class="author">Dan Hendrycks (Berkeley), Justin Gilmer (Google Brain Team)</span>
-                </h3>
-                <p class="summary">
-                    Dan and Justin discuss "non-robust features" as a special case
-                    of models being non-robust because they latch on to superficial correlations,
-                    a view often found in the distributional robustness literature.
-                    As an example, they discuss recent analysis of how neural networks behave in frequency space.
-                    They emphasize we should think about a broader notion of robustness.
-                    <!-- TODO: mention distributional robustness -->
-                </p>
-                <p class="rebuttal-summary">
-                    <b>Original Authors:</b>
-                    "The demonstration of models that learn from high-frequency components of the data is interesting
-                    and
-                    nicely aligns with our findings. Now, even though susceptibility to noise could indeed arise from
-                    non-robust useful features, this kind of brittleness (akin to adversarial examples)
-                    of ML models has been so far predominantly viewed as a consequence of model
-                    “bugs” that will be eliminated by “better” models. Finally, we agree that our
-                    models need to be robust to a much broader set of perturbations&mdash;expanding the
-                    set of relevant perturbations will help identify even more non-robust features
-                    and further distill the useful features we actually want our models to rely on."
                 </p>
             </li>
             <li>
