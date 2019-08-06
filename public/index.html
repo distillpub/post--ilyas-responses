@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- <script src="https://distill.pub/template.v2.js"></script> -->
-    <script src="http://localhost:8000/template.v2.js"></script>
+    <script src="http://distill.pub/template.v2.js"></script>
     <style>
         .subgrid {
 	grid-column: screen;
@@ -48,8 +48,6 @@ d-figure > figure {
 	left: -48px;
 }
 
-#rebuttal,
-.summary,
 .rebuttal-summary,
 #response-info {
 	margin: 1em 0;
@@ -73,7 +71,6 @@ h3 .author {
 	margin-left: 8px;
 }
 
-#rebuttal,
 .rebuttal-summary,
 #response-info {
 	background-color: hsl(118, 50%, 97%);
@@ -81,9 +78,111 @@ h3 .author {
 	/* border-radius: 0.25em; */
 }
 
-.summary {
-	background-color: hsl(228, 50%, 97%);
-	border-left: solid hsl(229, 50%, 25%) 3px;
+.rebuttal {
+	background-color: hsl(54, 78%, 96%);
+	border-left: solid hsl(54, 33%, 67%) 1px;
+	padding: 1.5em;
+	color: hsla(0, 0%, 0%, 0.67);
+}
+
+.rebuttal h4 {
+	margin-top: 0;
+}
+
+.rebuttal p {
+	margin-bottom: 0;
+}
+
+.articles article {
+	border-top: 1px solid rgba(0, 0, 0, 0.1);
+	padding: 2em 0;
+	display: grid;
+	grid-template-columns: 65px 1fr;
+	grid-template-areas:
+		"icon header"
+		"icon summary"
+		"icon rebuttal";
+	grid-row-gap: 1.5em;
+}
+
+article#rebuttal {
+	grid-template-areas:
+		"icon header"
+		"icon summary";
+}
+
+.articles article .icon {
+	grid-area: icon;
+	padding-top: 0.5em;
+	content: url(images/single-page.svg);
+}
+
+.articles article header {
+	grid-area: header;
+}
+
+.articles article header h3 {
+	font-size: 22px;
+}
+
+.articles article header .authors-affiliations {
+	display: grid;
+	grid-template-columns: 25% 25%;
+	font-size: 0.8rem;
+}
+
+.articles article header .authors-affiliations h3 {
+	font-size: 0.6rem;
+	font-weight: 400;
+	color: rgba(0, 0, 0, 0.5);
+	margin: 0;
+	text-transform: uppercase;
+}
+
+.articles article header .authors-affiliations a {
+	color: rgba(0, 0, 0, 0.8);
+	text-decoration: none;
+	border-bottom: none;
+}
+
+.articles article header .authors-affiliations p {
+	margin-bottom: 0;
+}
+
+.articles article .summary {
+	grid-area: summary;
+	margin: 0;
+}
+
+.articles article .continue {
+	grid-area: continue;
+	font-size: 80%;
+	font-weight: 600;
+	border-bottom: none;
+	text-transform: uppercase;
+	color: #2e6db7;
+	display: block;
+	margin-top: 0.25em;
+	letter-spacing: 0.25px;
+}
+
+.articles article .continue::before {
+	content: "→";
+	margin-right: 0.25em;
+}
+
+.articles article .rebuttal {
+	grid-area: rebuttal;
+}
+
+.articles article header h3 {
+	margin-top: 0;
+	padding-right: 2em;
+}
+
+.articles article header h3 a {
+	border-bottom: none;
+	color: #2e6db7;
 }
 
     </style>
@@ -98,9 +197,75 @@ h3 .author {
   "password": "advex-responses",
   "authors": [
     {
-      "author": "",
-      "authorURL": "",
+      "author": "Logan Engstrom",
+      "authorURL": "http://loganengstrom.com/",
+      "affiliation": "MIT",
+      "affiliationURL": ""
+    },
+    {
+      "author": "Justin Gilmer",
+      "authorURL": "https://www.linkedin.com/in/jmgilmer/",
+      "affiliation": "Google Brain Team",
+      "affiliationURL": "https://ai.google/research/teams/brain"
+    },
+    {
+      "author": "Gabriel Goh",
+      "authorURL": "https://gabgoh.github.io/",
+      "affiliation": "OpenAI",
+      "affiliationURL": "https://openai.com/"
+    },
+    {
+      "author": "Dan Hendrycks",
+      "authorURL": "https://people.eecs.berkeley.edu/~hendrycks/",
+      "affiliation": "UC Berkeley",
+      "affiliationURL": ""
+    },
+    {
+      "author": "Andrew Ilyas",
+      "authorURL": "http://andrewilyas.com/",
+      "affiliation": "MIT",
+      "affiliationURL": ""
+    },
+    {
+      "author": "Aleksander Madry",
+      "authorURL": "https://people.csail.mit.edu/madry/",
+      "affiliation": "MIT",
+      "affiliationURL": ""
+    },
+    {
+      "author": "Reiichiro Nakano",
+      "authorURL": "https://reiinakano.com/",
       "affiliation": "",
+      "affiliationURL": ""
+    },
+    {
+      "author": "Preetum Nakkiran",
+      "authorURL": "",
+      "affiliation": "OpenAI & Harvard",
+      "affiliationURL": ""
+    },
+    {
+      "author": "Shibani Santurkar",
+      "authorURL": "http://people.csail.mit.edu/shibani/",
+      "affiliation": "MIT",
+      "affiliationURL": ""
+    },
+    {
+      "author": "Brandon Tran",
+      "authorURL": "",
+      "affiliation": "MIT",
+      "affiliationURL": ""
+    },
+    {
+      "author": "Dimitris Tsipras",
+      "authorURL": "http://people.csail.mit.edu/tsipras/",
+      "affiliation": "MIT",
+      "affiliationURL": ""
+    },
+    {
+      "author": "Eric Wallace",
+      "authorURL": "http://www.ericswallace.com/",
+      "affiliation": "Allen Institute for AI",
       "affiliationURL": ""
     }
   ],
@@ -239,9 +404,87 @@ h3 .author {
             <b>Properties of Robust and Non-Robust Features</b>:
             The other three comments focused on the properties of robust and non-robust models.
             Gabriel Goh explores what non-robust features might look like in the case of linear models,
-            while Dan Hendrycks and Justin Gilmer discuss the role of high-frequency noise in adversarial examples,
+            while Dan Hendrycks and Justin Gilmer discuss how the results relate to the broader problem of robustness to
+            distribution shift,
             and Reiichiro Nakano explores the qualitative differences of robust models in the context of style transfer.
         </p>
+
+        <h2>Author Clarifications</h2>
+        <p>
+            The original authors recap key takeaways from their paper, followed by clarifications that this discussion
+            brought to light. TODO(@chris) or delete
+        </p>
+
+        <div class="articles">
+            <article id="rebuttal">
+                <div class=icon></div>
+                <header>
+                    <h3>
+                        <a href="rebuttal">Discussion and Author Responses</a>
+                    </h3>
+                    <div class="authors-affiliations grid">
+                        <h3>Authors</h3>
+                        <h3>Affiliations</h3>
+
+                        <p class="author">
+
+                            <a class="name" href="http://loganengstrom.com/">Logan Engstrom</a>
+                        </p>
+                        <p class="affiliation">
+                            <span class="affiliation">MIT</span>
+                        </p>
+
+                        <p class="author">
+
+                            <a class="name" href="http://andrewilyas.com/">Andrew Ilyas</a>
+                        </p>
+                        <p class="affiliation">
+                            <span class="affiliation">MIT</span>
+                        </p>
+
+                        <p class="author">
+
+                            <a class="name" href="https://people.csail.mit.edu/madry/">Aleksander Madry</a>
+                        </p>
+                        <p class="affiliation">
+                            <span class="affiliation">MIT</span>
+                        </p>
+
+                        <p class="author">
+
+                            <a class="name" href="http://people.csail.mit.edu/shibani/">Shibani Santurkar</a>
+                        </p>
+                        <p class="affiliation">
+                            <span class="affiliation">MIT</span>
+                        </p>
+
+                        <p class="author">
+
+                            <span class="name">Brandon Tran</span>
+                        </p>
+                        <p class="affiliation">
+                            <span class="affiliation">MIT</span>
+                        </p>
+
+                        <p class="author">
+
+                            <a class="name" href="http://people.csail.mit.edu/tsipras/">Dimitris Tsipras</a>
+                        </p>
+                        <p class="affiliation">
+                            <span class="affiliation">MIT</span>
+                        </p>
+                    </div>
+                </header>
+                <p class="summary">
+                    Discussion between the respondents and original authors was able
+                    to surface several misunderstandings or opportunities to sharpen claims.
+                    The original authors summarize this in their rebuttal. TODO(@chris) or delete
+                    <a class="continue" href="rebuttal">
+                        Read Full Article
+                    </a>
+                </p>
+            </article>
+        </div>
 
         <h2>Comments</h2>
         <p>
@@ -249,180 +492,243 @@ h3 .author {
             They are presented in alphabetical order by the author's last name,
             with brief summaries of each comment and the corresponding rebuttal.
         </p>
-        <ol>
-            <li>
-                <h3 style="margin-top: 20px;">
-                    <a href="response-1">Two Examples of Useful, Non-Robust Features</a>
-                    <span class="author">Gabriel Goh (OpenAI)</span>
-                </h3>
+
+        <div class="articles">
+            <article id="response-3">
+                <div class=icon></div>
+                <header>
+                    <h3>
+                        <a href="response-3">Adversarial Example Researchers Need to Expand What is Meant by
+                            "Robustness"</a>
+                    </h3>
+                    <div class="authors-affiliations grid">
+                        <h3>Authors</h3>
+                        <h3>Affiliations</h3>
+                        <p class="author">
+                            <a class="name" href="https://www.linkedin.com/in/jmgilmer">Justin Gilmer</a>
+                        </p>
+                        <p class="affiliation">
+                            <a class="affiliation" href="https://g.co/brain">Google Brain Team</a>
+                        </p>
+                        <p class="author">
+                            <a class="name" href="https://people.eecs.berkeley.edu/~hendrycks/">Dan Hendrycks</a>
+                        </p>
+                        <p class="affiliation">
+                            <a class="affiliation" href="https://www.berkeley.edu/">UC Berkeley</a>
+                        </p>
+                    </div>
+                </header>
+                <p class="summary">
+                    Justin and Dan discuss "non-robust features" as a special case
+                    of models being non-robust because they latch on to superficial correlations,
+                    a view often found in the distributional robustness literature.
+                    As an example, they discuss recent analysis of how neural networks behave in frequency space.
+                    They emphasize we should think about a broader notion of robustness.
+                    <a class="continue" href="response-3">
+                        Read Full Article
+                    </a>
+                </p>
+                <div class="rebuttal">
+                    <h4>Comment from Ilyas et al:</h4>
+                    <p>
+                        The demonstration of models that learn from only high-frequency components of the data is
+                        an interesting finding that provides us with another way our models can learn from data that
+                        appears “meaningless” to humans.
+                        The authors fully agree that studying a wider notion of robustness will become increasingly
+                        important in ML, and will help us get a better grasp of features we actually want our models
+                        to rely on.
+                    </p>
+                </div>
+            </article>
+
+            <article id="response-1">
+                <div class=icon></div>
+                <header>
+                    <h3>
+                        <a href="response-1">Two Examples of Useful, Non-Robust Features</a>
+                    </h3>
+                    <div class="authors-affiliations grid">
+                        <h3>Authors</h3>
+                        <h3>Affiliations</h3>
+                        <p class="author">
+                            <a class="name" href="https://gabgoh.github.io">Gabriel Goh</a>
+                        </p>
+                        <p class="affiliation">
+                            <a class="affiliation" href="https://openai.com">OpenAI</a>
+                        </p>
+                    </div>
+                </header>
                 <p class="summary">
                     Gabriel explores what non-robust useful features might look like in the linear case.
                     He provides two constructions:
                     "contaminated" features which are only non-robust due to a non-useful feature being mixed in,
                     and "ensembles" that could be candidates for true useful non-robust features.
+                    <a class="continue" href="response-1">
+                        Read Full Article
+                    </a>
                 </p>
-                <p class="rebuttal-summary">
-                    <b>Original Authors:</b>
-                    "The construction of explicit non-robust features is
-                    very interesting and makes progress towards the challenge of visualizing some of
-                    the useful non-robust features detected by our experiments. We also agree that
-                    non-robust features arising as “distractors” is indeed not precluded by our
-                    theoretical framework, even if it is precluded by our experiments. Though for
-                    our purposes this simple theoretical framework sufficed for reasoning about
-                    experiments<d-footnote>We also presented a theoretical setting where we can
-                        analyze things fully rigorously in Section 4 of our paper.</d-footnote>, this comment
-                    identifies finding a more comprehensive definition of feature as an interesting
-                    future research direction."
-                </p>
-            </li>
-            <li>
-                <h3>
-                    <a href="response-2">Robust Feature Leakage</a>
-                    <span class="author">Gabriel Goh (OpenAI)</span>
-                </h3>
+                <div class="rebuttal">
+                    <h4>Comment from Ilyas et al:</h4>
+                    <p>
+                        These experiments with linear models are a great first step towards visualizing non-robust
+                        features for real datasets (and thus a neat corroboration of their existence).
+                        Furthermore, the theoretical construction of "contaminated" non-robust features opens an
+                        interesting direction of developing a more fine-grained definition of features.
+                    </p>
+                </div>
+            </article>
+
+            <article id="response-2">
+                <div class=icon></div>
+                <header>
+                    <h3>
+                        <a href="response-2">Robust Feature Leakage</a>
+                    </h3>
+                    <div class="authors-affiliations grid">
+                        <h3>Authors</h3>
+                        <h3>Affiliations</h3>
+                        <p class="author">
+                            <a class="name" href="https://gabgoh.github.io">Gabriel Goh</a>
+                        </p>
+                        <p class="affiliation">
+                            <a class="affiliation" href="https://openai.com">OpenAI</a>
+                        </p>
+                    </div>
+                </header>
                 <p class="summary">
-                    Gabriel explores an alternative mechanism that could contribute to the non-robust transfer results.
+                    Gabriel explores an alternative mechanism that could contribute to the non-robust transfer
+                    results.
                     He establishes a lower-bound showing that this mechanism contributes a little bit to the
                     $\widehat{\mathcal{D}}_{rand}$ experiment,
                     but finds no evidence for it effecting the $\widehat{\mathcal{D}}_{det}$ experiment.
+                    <a class="continue" href="response-2">
+                        Read Full Article
+                    </a>
                 </p>
-                <p class="rebuttal-summary">
-                    <b>Original Authors:</b>
-                    "This
-                    is a valid concern that was actually one of our motivations for creating the
-                    $\widehat{\mathcal{D}}_{det}$ dataset—which, as the comment notes, actually
-                    has <em>misleading</em> robust features. The corresponding experiment further
-                    improves our understanding of the underlying phenomenon."
-                </p>
-                <p class="rebuttal-summary">
-                    <span style="color: #888;">(Potential alternative rebuttal summary, in voice of journal.)</span>
-                    <br><br>
-                    The original authors emphasize that one of the purposes of the $\widehat{\mathcal{D}}_{det}$
-                    experiment
-                    (which tries to not just remove robust features but make them actively misleading)
-                    is actually to avoid this concern, and it seems to succeed.
-                </p>
-            </li>
-            <li>
-                <h3>
-                    <a href="response-3">Adversarial Example Researchers Need to Expand What is Meant by
-                        "Robustness"</a>
-                    <span class="author">Dan Hendrycks (Berkeley), Justin Gilmer (Google Brain Team)</span>
-                </h3>
-                <p class="summary">
-                    Dan and Justin discuss "non-robust features" as a special case
-                    of models being non-robust because they latch on to superficial correlations,
-                    a view often found in the distributional robustness literature.
-                    As an example, they discuss recent analysis of how neural networks behave in frequency space.
-                    They emphasize we should think about a broader notion of robustness.
-                    <!-- TODO: mention distributional robustness -->
-                </p>
-                <p class="rebuttal-summary">
-                    <b>Original Authors:</b>
-                    "The demonstration of models that learn from high-frequency components of the data is interesting
-                    and
-                    nicely aligns with our findings. Now, even though susceptibility to noise could indeed arise from
-                    non-robust useful features, this kind of brittleness (akin to adversarial examples)
-                    of ML models has been so far predominantly viewed as a consequence of model
-                    “bugs” that will be eliminated by “better” models. Finally, we agree that our
-                    models need to be robust to a much broader set of perturbations&mdash;expanding the
-                    set of relevant perturbations will help identify even more non-robust features
-                    and further distill the useful features we actually want our models to rely on."
-                </p>
-            </li>
-            <li>
-                <h3>
-                    <a href="response-4">Adversarially Robust Neural Style Transfer</a>
-                    <span class="author">Reiichiro Nakano</span>
-                </h3>
+                <div class="rebuttal">
+                    <h4>Comment from Ilyas et al:</h4>
+                    <p>
+                        This is a nice in-depth investigation that highlights (and neatly visualizes) one of the
+                        motivations for designing the $\widehat{\mathcal{D}}_{det}$ dataset.
+                    </p>
+                </div>
+            </article>
+
+            <article id="response-4">
+                <div class=icon></div>
+                <header>
+                    <h3>
+                        <a href="response-4">Adversarially Robust Neural Style Transfer</a>
+                    </h3>
+                    <div class="authors-affiliations grid">
+                        <h3>Authors</h3>
+                        <h3>Affiliations</h3>
+                        <p class="author">
+                            <a class="name" href="https://reiinakano.com/">Reiichiro Nakano</a>
+                        </p>
+                        <p class="affiliation">
+                            <a class="affiliation" href="https://www.infostellar.net/">Infostellar</a>
+                        </p>
+                    </div>
+                </header>
                 <p class="summary">
                     Reiichiro shows that adversarial robustness makes neural style transfer
                     work by default on a non-VGG architecture.
-                    He finds that matching robust features makes style transfer's outputs look perceptually better to
-                    humans.
+                    He finds that matching robust features makes style transfer's outputs look perceptually better
+                    to humans.
+                    <a class="continue" href="response-4">
+                        Read Full Article
+                    </a>
                 </p>
-                <p class="rebuttal-summary">
-                    <b>Original Authors:</b>
-                    "Very interesting results, highlighting the effect of non-robust features and the utility of
-                    robust models for downstream tasks. We’re excited to see what kind of impact
-                    robustly trained models will have in neural network art! We were also really
-                    intrigued by the mysteriousness of VGG with style transfer. As such, we took a
-                    deeper dive which found some interesting links between robustness and style
-                    transfer that suggest that perhaps robustness does indeed have a role."
-                </p>
-            </li>
-            <li id="response-5">
-                <h3>
-                    <a href="response-5">Adversarial Examples are Just Bugs, Too</a>
-                    <span class="author">Preetum Nakkiran (OpenAI & Harvard)</span>
-                </h3>
+                <div class="rebuttal">
+                    <h4>Comment from Ilyas et al:</h4>
+                    <p>
+                        Very interesting results that highlight the potential role of non-robust features and the
+                        utility of robust models for downstream tasks. We're excited to see what kind of impact robustly
+                        trained models will have in neural network art!
+                        Inspired by these findings, we also take a deeper dive into (non-robust) VGG, and find some
+                        interesting links between robustness and style transfer.
+                    </p>
+                </div>
+            </article>
+
+            <article id="response-5">
+                <div class=icon></div>
+                <header>
+                    <h3>
+                        <a href="response-5">Adversarial Examples are Just Bugs, Too</a>
+                    </h3>
+                    <div class="authors-affiliations grid">
+                        <h3>Authors</h3>
+                        <h3>Affiliations</h3>
+                        <p class="author">
+                            <a class="name" href="https://preetum.nakkiran.org/">Preetum Nakkiran</a>
+                        </p>
+                        <p class="affiliation">
+                            <a class="affiliation" href="https://openai.com">OpenAI</a> &
+                            <a class="affiliation" href="https://www.harvard.edu/">Harvard University</a>
+                        </p>
+                    </div>
+                </header>
                 <p class="summary">
                     Preetum constructs a family of adversarial examples with no transfer to real data,
                     suggesting that some adversarial examples are "bugs" in the original papers framing.
-                    Preetum also demonstrate that adversarial examples can arise even if the underlying distribution has
-                    no "non-robust features".
+                    Preetum also demonstrate that adversarial examples can arise even if the underlying distribution
+                    has no "non-robust features".
+                    <a class="continue" href="response-5">
+                        Read Full Article
+                    </a>
                 </p>
+                <div class="rebuttal">
+                    <h4>Comment from Ilyas et al:</h4>
+                    <p>
+                        A fine-grained look at adversarial examples that neatly our thesis (i.e. that non-robust
+                        features exist and adversarial examples arise from them, see Takeaway #1) while providing an
+                        example of adversarial examples that arise from "bugs".
+                        The fact that the constructed "bugs"-based adversarial examples don't transfer constitutes
+                        another evidence for the link between transferability and (non-robust) features.
+                    </p>
+                </div>
+            </article>
 
-                <p class="rebuttal-summary">
-                    <b>Original Authors:</b>
-                    "We note that as discussed in
-                    more detail in <a href="rebuttal/#takeaway1">Takeaway #1</a>, the mere existence of adversarial
-                    examples that are “features” is sufficient to corroborate our main thesis. This comment
-                    illustrates, however, that we can indeed craft adversarial examples that are
-                    based on “bugs” in realistic settings. Interestingly, such examples don’t
-                    transfer, which provides further support for the link between transferability
-                    and non-robust features."
-                </p>
-
-                <p class="rebuttal-summary">
-                    <span style="color: #888;">(Potential alternative rebuttal summary, in voice of journal.)</span>
-                    <br><br>
-                    The original authors clarify that this is consistent with their thesis:
-                    they aim to show that some adversarial examples are "features", not that all are.
-                    (See <a href="rebuttal/#takeaway1">Takeaway #1</a>.)
-                </p>
-            </li>
-            <li>
-                <h3>
-                    <a href="response-6">Learning from Incorrectly Labeled Data</a>
-                    <span class="author">Eric Wallace (Allen Institute for AI)</span>
-                </h3>
+            <article id="response-6">
+                <div class=icon></div>
+                <header>
+                    <h3>
+                        <a href="response-6">Learning from Incorrectly Labeled Data</a>
+                    </h3>
+                    <div class="authors-affiliations grid">
+                        <h3>Authors</h3>
+                        <h3>Affiliations</h3>
+                        <p class="author">
+                            <a class="name" href="https://www.ericswallace.com/">Eric Wallace</a>
+                        </p>
+                        <p class="affiliation">
+                            <a class="affiliation" href="https://allenai.org/">Allen Institute for AI</a>
+                        </p>
+                    </div>
+                </header>
                 <p class="summary">
                     Eric shows that training on a model's training errors,
                     or on how it predicts examples form an unrelated dataset,
                     can both transfer to the true test set.
                     These experiments are analogous to the original paper's non-robust transfer results
                     -- all three results are examples of a kind of "learning from incorrectly labeled data."
+                    <a class="continue" href="response-6">
+                        Read Full Article
+                    </a>
                 </p>
-                <p class="rebuttal-summary">
-                    <b>Original Authors:</b>
-                    "Note that since our experiments work across architectures,
-                    “distillation” in weight space does not occur. The only distillation that can
-                    arise is “feature space” distillation, which is actually exactly our hypothesis.
-                    In particular, feature-space distillation would not work in <a href="rebuttal/#world1"> World
-                        1</a>—if the adversarial examples we generated did not exploit useful features, we should
-                    not have been able to “distill” a useful model from them. (In fact, one might think
-                    of normal model training as just “feature distillation” of the humans that
-                    labeled the dataset.) Furthermore, the hypothesis that all we need is enough
-                    model-consistent points in order to recover a model, seems to be disproven by
-                    Preetum's <a href="#response-5"> “bugs-only dataset”</a>
-                    and other (e.g. <d-cite key="milli2018model"></d-cite>) settings."
-                </p>
-            </li>
-        </ol>
+                <div class="rebuttal">
+                    <h4>Comment from Ilyas et al:</h4>
+                    <p>
+                        These experiments are a creative demonstration of the fact that the underlying phenomenon of
+                        learning features from “human-meaningless” data can actually arise in a broad range of
+                        settings.
+                    </p>
+                </div>
+            </article>
 
-        <h2>Author Rebuttal</h2>
-
-        <p>Probably could inline their general clarifications here?</p>
-
-        <p>
-            <a href="rebuttal">All rebuttals</a>
-            <span class="author">Logan Engstrom, Andrew Ilyas, Aleksander Madry, Shibani Santurkar, Brandon Tran,
-                Dimitris
-                Tsipras</span>
-        </p>
-
-
+        </div>
 
     </d-article>
 
