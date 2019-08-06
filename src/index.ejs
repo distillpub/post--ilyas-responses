@@ -14,7 +14,7 @@
     <d-front-matter>
         <script type="text/json">{
   "title": "A Discussion of 'Adversarial Examples Are Not Bugs, They Are Features'",
-  "description": "",
+  "description": "Six comments from the community and responses from the original authors",
   "authors": [
     {
       "author": "Logan Engstrom",
@@ -291,6 +291,42 @@
                 </div>
             </article>
 
+            <article id="response-2">
+                <div class=icon></div>
+                <header>
+                    <h3>
+                        <a href="response-2">Robust Feature Leakage</a>
+                    </h3>
+                    <div class="authors-affiliations grid">
+                        <h3>Authors</h3>
+                        <h3>Affiliations</h3>
+                        <p class="author">
+                            <a class="name" href="https://gabgoh.github.io">Gabriel Goh</a>
+                        </p>
+                        <p class="affiliation">
+                            <a class="affiliation" href="https://openai.com">OpenAI</a>
+                        </p>
+                    </div>
+                </header>
+                <p class="summary">
+                    Gabriel explores an alternative mechanism that could contribute to the non-robust transfer
+                    results.
+                    He establishes a lower-bound showing that this mechanism contributes a little bit to the
+                    $\widehat{\mathcal{D}}_{rand}$ experiment,
+                    but finds no evidence for it effecting the $\widehat{\mathcal{D}}_{det}$ experiment.
+                    <a class="continue" href="response-2">
+                        Read Full Article
+                    </a>
+                </p>
+                <div class="rebuttal">
+                    <h4>Comment from original authors:</h4>
+                    <p>
+                        This is a nice in-depth investigation that highlights (and neatly visualizes) one of the
+                        motivations for designing the $\widehat{\mathcal{D}}_{det}$ dataset.
+                    </p>
+                </div>
+            </article>
+
             <article id="response-3">
                 <div class=icon></div>
                 <header>
@@ -324,42 +360,6 @@
                         features for real datasets (and thus a neat corroboration of their existence).
                         Furthermore, the theoretical construction of "contaminated" non-robust features opens an
                         interesting direction of developing a more fine-grained definition of features.
-                    </p>
-                </div>
-            </article>
-
-            <article id="response-2">
-                <div class=icon></div>
-                <header>
-                    <h3>
-                        <a href="response-2">Robust Feature Leakage</a>
-                    </h3>
-                    <div class="authors-affiliations grid">
-                        <h3>Authors</h3>
-                        <h3>Affiliations</h3>
-                        <p class="author">
-                            <a class="name" href="https://gabgoh.github.io">Gabriel Goh</a>
-                        </p>
-                        <p class="affiliation">
-                            <a class="affiliation" href="https://openai.com">OpenAI</a>
-                        </p>
-                    </div>
-                </header>
-                <p class="summary">
-                    Gabriel explores an alternative mechanism that could contribute to the non-robust transfer
-                    results.
-                    He establishes a lower-bound showing that this mechanism contributes a little bit to the
-                    $\widehat{\mathcal{D}}_{rand}$ experiment,
-                    but finds no evidence for it effecting the $\widehat{\mathcal{D}}_{det}$ experiment.
-                    <a class="continue" href="response-2">
-                        Read Full Article
-                    </a>
-                </p>
-                <div class="rebuttal">
-                    <h4>Comment from original authors:</h4>
-                    <p>
-                        This is a nice in-depth investigation that highlights (and neatly visualizes) one of the
-                        motivations for designing the $\widehat{\mathcal{D}}_{det}$ dataset.
                     </p>
                 </div>
             </article>
