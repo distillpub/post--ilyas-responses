@@ -40,7 +40,6 @@ d-figure > figure {
 	left: -48px;
 }
 
-#rebuttal,
 .rebuttal-summary,
 #response-info {
 	margin: 1em 0;
@@ -64,7 +63,6 @@ h3 .author {
 	margin-left: 8px;
 }
 
-#rebuttal,
 .rebuttal-summary,
 #response-info {
 	background-color: hsl(118, 50%, 97%);
@@ -97,6 +95,12 @@ h3 .author {
 		"icon summary"
 		"icon rebuttal";
 	grid-row-gap: 1.5em;
+}
+
+article#rebuttal {
+	grid-template-areas:
+		"icon header"
+		"icon summary";
 }
 
 .articles article .icon {
