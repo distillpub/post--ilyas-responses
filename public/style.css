@@ -119,7 +119,7 @@ article#rebuttal {
 
 .articles article header .authors-affiliations {
 	display: grid;
-	grid-template-columns: 25% 25%;
+	grid-template-columns: repeat(2, minmax(25%, max-content));
 	font-size: 0.8rem;
 }
 
@@ -169,7 +169,6 @@ article#rebuttal {
 
 .articles article header h3 {
 	margin-top: 0;
-	padding-right: 2em;
 }
 
 .articles article header h3 a {

@@ -126,7 +126,7 @@ article#rebuttal {
 
 .articles article header .authors-affiliations {
 	display: grid;
-	grid-template-columns: 25% 25%;
+	grid-template-columns: repeat(2, minmax(25%, max-content));
 	font-size: 0.8rem;
 }
 
@@ -176,7 +176,6 @@ article#rebuttal {
 
 .articles article header h3 {
 	margin-top: 0;
-	padding-right: 2em;
 }
 
 .articles article header h3 a {
@@ -656,7 +655,7 @@ article#rebuttal {
         </div>
 
 
-        <h2>Original Author Discussion and Responses</h2>
+        <h2 style="margin-bottom: 0">Original Author Discussion and Responses</h2>
 
         <div class="articles">
             <article id="rebuttal" style="border: none;">
@@ -665,7 +664,7 @@ article#rebuttal {
                     <h3>
                         <a href="original-authors/">Discussion and Author Responses</a>
                     </h3>
-                    <div class="authors-affiliations grid" style="grid-template-columns: 50% 25%">
+                    <div class="authors-affiliations grid">
                         <h3>Authors</h3>
                         <h3>Affiliations</h3>
 
